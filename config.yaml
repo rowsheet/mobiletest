@@ -11,11 +11,3 @@ HomePage:
         onea: a
       - two: 2
         twoa: a
-Dashboard:
-  Pages:
-    - Home:
-      path: /
-      icon: dashboard
-    - Products:
-      path: /products
-      icon: shopping-cart
