@@ -1,0 +1,4 @@
+command: dosomething
+foo:
+  - bar
+  - baz
