@@ -1,0 +1,8 @@
+Dashboard:
+  Pages:
+    - Home:
+      path: /
+      icon: dashboard
+    - Products:
+      path: /products
+      icon: shopping-cart
