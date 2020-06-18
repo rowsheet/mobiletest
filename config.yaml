@@ -3,3 +3,19 @@ AAPL:
     date: 11/27/2015
   - shares: 75.088
     date: 11/26/2015
+HomePage:
+  Foo: Foo
+  bar:
+    baz:
+      - one: 1
+        onea: a
+      - two: 2
+        twoa: a
+Dashboard:
+  Pages:
+    - Home:
+      path: /
+      icon: dashboard
+    - Products:
+      path: /products
+      icon: shopping-cart
