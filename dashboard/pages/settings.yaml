@@ -1,0 +1,29 @@
+rows:
+  - columns:
+    - size: md-6
+      content:
+        h1:
+          text: Settings
+          float: left
+    - size: md-6
+      content: null
+  - columns:
+    - size: md-6
+      offset: md-3
+      content:
+        form:
+          - text:
+            label: username
+            placeholder: cookie.user.settings.username
+          - text:
+            label: password
+            placeholder: null
+          - radio:
+            label: active
+            options:
+              - label: Yes
+              - label: No
+            match: cookie.user.settinga.active
+          - image:
+            label: profile picture
+            placeholder: cookie.user.settings.profile_picture
