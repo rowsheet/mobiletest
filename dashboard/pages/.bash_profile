@@ -1,0 +1,9 @@
+alias python='python3'
+alias c='clear'
+alias v='vim'
+alias lla="ls -la"
+alias la="lla | awk '{print \$1,\$2,\$9}'"
+alias bp='vim ~/.bash_profile'
+alias s='source ~/.bash_profile'
+alias gs='git status'
+alias gd='git diff'
