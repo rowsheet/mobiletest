@@ -15,3 +15,4 @@ alias p='python'
 alias pi='pip3 install'
 alias ki='pkg install'
 function r(){ ./$@; }
+function rr(){ gcc main.c; ./a.out; }
