@@ -1,0 +1,124 @@
+
+./a.out:     file format elf32-littlearm
+
+
+Disassembly of section .plt:
+
+000003e4 <.plt>:
+ 3e4:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+ 3e8:	e59fe004 	ldr	lr, [pc, #4]	; 3f4 <.plt+0x10>
+ 3ec:	e08fe00e 	add	lr, pc, lr
+ 3f0:	e5bef008 	ldr	pc, [lr, #8]!
+ 3f4:	00010bdc 	.word	0x00010bdc
+
+000003f8 <printf@plt>:
+ 3f8:	e28fc600 	add	ip, pc, #0, 12
+ 3fc:	e28cca10 	add	ip, ip, #16, 20	; 0x10000
+ 400:	e5bcfbdc 	ldr	pc, [ip, #3036]!	; 0xbdc
+
+00000404 <__register_atfork@plt>:
+ 404:	e28fc600 	add	ip, pc, #0, 12
+ 408:	e28cca10 	add	ip, ip, #16, 20	; 0x10000
+ 40c:	e5bcfbd4 	ldr	pc, [ip, #3028]!	; 0xbd4
+
+00000410 <gets@plt>:
+ 410:	e28fc600 	add	ip, pc, #0, 12
+ 414:	e28cca10 	add	ip, ip, #16, 20	; 0x10000
+ 418:	e5bcfbcc 	ldr	pc, [ip, #3020]!	; 0xbcc
+
+0000041c <__libc_init@plt>:
+ 41c:	e28fc600 	add	ip, pc, #0, 12
+ 420:	e28cca10 	add	ip, ip, #16, 20	; 0x10000
+ 424:	e5bcfbc4 	ldr	pc, [ip, #3012]!	; 0xbc4
+
+00000428 <__cxa_atexit@plt>:
+ 428:	e28fc600 	add	ip, pc, #0, 12
+ 42c:	e28cca10 	add	ip, ip, #16, 20	; 0x10000
+ 430:	e5bcfbbc 	ldr	pc, [ip, #3004]!	; 0xbbc
+
+Disassembly of section .text:
+
+00000434 <_start>:
+ 434:	e1a0000d 	mov	r0, sp
+ 438:	eaffffff 	b	43c <_start_main>
+
+0000043c <_start_main>:
+ 43c:	e92d4800 	push	{fp, lr}
+ 440:	e1a0b00d 	mov	fp, sp
+ 444:	e24dd010 	sub	sp, sp, #16
+ 448:	e59f1030 	ldr	r1, [pc, #48]	; 480 <_start_main+0x44>
+ 44c:	e28d3004 	add	r3, sp, #4
+ 450:	e79f1001 	ldr	r1, [pc, r1]
+ 454:	e58d100c 	str	r1, [sp, #12]
+ 458:	e59f1024 	ldr	r1, [pc, #36]	; 484 <_start_main+0x48>
+ 45c:	e79f1001 	ldr	r1, [pc, r1]
+ 460:	e58d1008 	str	r1, [sp, #8]
+ 464:	e59f101c 	ldr	r1, [pc, #28]	; 488 <_start_main+0x4c>
+ 468:	e79f1001 	ldr	r1, [pc, r1]
+ 46c:	e58d1004 	str	r1, [sp, #4]
+ 470:	e3a01000 	mov	r1, #0
+ 474:	e59f2010 	ldr	r2, [pc, #16]	; 48c <_start_main+0x50>
+ 478:	e79f2002 	ldr	r2, [pc, r2]
+ 47c:	ebffffe6 	bl	41c <__libc_init@plt>
+ 480:	00010ba0 	.word	0x00010ba0
+ 484:	00010b98 	.word	0x00010b98
+ 488:	00010b84 	.word	0x00010b84
+ 48c:	00010b70 	.word	0x00010b70
+
+00000490 <__atexit_handler_wrapper>:
+ 490:	e3500000 	cmp	r0, #0
+ 494:	012fff1e 	bxeq	lr
+ 498:	e12fff10 	bx	r0
+
+0000049c <atexit>:
+ 49c:	e1a01000 	mov	r1, r0
+ 4a0:	e59f000c 	ldr	r0, [pc, #12]	; 4b4 <atexit+0x18>
+ 4a4:	e59f200c 	ldr	r2, [pc, #12]	; 4b8 <atexit+0x1c>
+ 4a8:	e08f0000 	add	r0, pc, r0
+ 4ac:	e08f2002 	add	r2, pc, r2
+ 4b0:	eaffffdc 	b	428 <__cxa_atexit@plt>
+ 4b4:	ffffffe0 	.word	0xffffffe0
+ 4b8:	00010b4c 	.word	0x00010b4c
+
+000004bc <pthread_atfork>:
+ 4bc:	e59f3004 	ldr	r3, [pc, #4]	; 4c8 <pthread_atfork+0xc>
+ 4c0:	e08f3003 	add	r3, pc, r3
+ 4c4:	eaffffce 	b	404 <__register_atfork@plt>
+ 4c8:	00010b38 	.word	0x00010b38
+
+000004cc <main>:
+ 4cc:	e92d4800 	push	{fp, lr}
+ 4d0:	e1a0b00d 	mov	fp, sp
+ 4d4:	e24dd028 	sub	sp, sp, #40	; 0x28
+ 4d8:	e3a00000 	mov	r0, #0
+ 4dc:	e50b0004 	str	r0, [fp, #-4]
+ 4e0:	e59f1064 	ldr	r1, [pc, #100]	; 54c <main+0x80>
+ 4e4:	e08f1001 	add	r1, pc, r1
+ 4e8:	e50b0010 	str	r0, [fp, #-16]
+ 4ec:	e1a00001 	mov	r0, r1
+ 4f0:	ebffffc0 	bl	3f8 <printf@plt>
+ 4f4:	e59f1054 	ldr	r1, [pc, #84]	; 550 <main+0x84>
+ 4f8:	e08f1001 	add	r1, pc, r1
+ 4fc:	e58d0014 	str	r0, [sp, #20]
+ 500:	e1a00001 	mov	r0, r1
+ 504:	ebffffbb 	bl	3f8 <printf@plt>
+ 508:	e24b1009 	sub	r1, fp, #9
+ 50c:	e58d0010 	str	r0, [sp, #16]
+ 510:	e1a00001 	mov	r0, r1
+ 514:	e58d100c 	str	r1, [sp, #12]
+ 518:	ebffffbc 	bl	410 <gets@plt>
+ 51c:	e59f1030 	ldr	r1, [pc, #48]	; 554 <main+0x88>
+ 520:	e08f1001 	add	r1, pc, r1
+ 524:	e58d0008 	str	r0, [sp, #8]
+ 528:	e1a00001 	mov	r0, r1
+ 52c:	e59d100c 	ldr	r1, [sp, #12]
+ 530:	ebffffb0 	bl	3f8 <printf@plt>
+ 534:	e51b1010 	ldr	r1, [fp, #-16]
+ 538:	e58d0004 	str	r0, [sp, #4]
+ 53c:	e1a00001 	mov	r0, r1
+ 540:	e1a0d00b 	mov	sp, fp
+ 544:	e8bd4800 	pop	{fp, lr}
+ 548:	e12fff1e 	bx	lr
+ 54c:	0000006c 	.word	0x0000006c
+ 550:	0000006d 	.word	0x0000006d
+ 554:	00000053 	.word	0x00000053
