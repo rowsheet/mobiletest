@@ -13,3 +13,4 @@ alias bc='cp ~/.bash_profile .'
 alias p='python'
 alias pi='pip3 install'
 alias ki='pkg install'
+function r(){ ./$@; }
